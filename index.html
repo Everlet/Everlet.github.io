@@ -278,6 +278,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h2 id="1-异常的分类"><a href="#1-异常的分类" class="headerlink" title="1. 异常的分类"></a>1. 异常的分类</h2><p>在Java中，所有的异常都有一个共同的祖先java.lang包中的Throwable类。Throwable类有两个重要的子类Exception（异常）和Error（错误）。Exception能被程序本身处理（try-catch），Error是无法处理的（只能尽量避免）。</p>
+<p>Exception和Error两者都是Java异常处理的重要子类，各自都包含大量子类。</p>
+<ul>
+<li>Exception：程序本身可以处理的异常，可以通过cathc来进行捕获。Exception又可以分为受检查异常（必须处理）和不受检查异常（可以不处理）</li>
+<li>Error：Error属于程序无法处理的错误，我们没办法通过catch来进行捕获。例如，Java虚拟机运行错误（Virtual MachineError）、虚拟机内存不够错误（OutOfMemoryError）、类定义错误（NoClassDefFoundError）等。这些异常发生时，Java虚拟机（JVM）一般会选择线程终止。</li>
+</ul>
+<h2 id="2-受检查异常"><a href="#2-受检查异常" class="headerlink" title="2. 受检查异常"></a>2. 受检查异常</h2><p>Java代码在编译过程中，如果受检查异常没有被catch/throw处理的话，就没办法通过编译。比如下面这段IO操作的代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        FileInputStream fis = <span class="keyword">null</span>;</span><br><span class="line">        fis = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;B:/myFile.txt&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> k;</span><br><span class="line">        <span class="keyword">while</span> ((k = fis.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.print((<span class="keyword">char</span>) k);</span><br><span class="line">        &#125;</span><br><span class="line">        fis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除了RuntimeException及其子类以外，其他的Exception类及其子类都属于受检查异常。常见的受检查异常有：IO相关的异常、ClassNoFoundException、SQLException …。</p>
+        
+          <a class="article-more-a" href="/2021/04/19/Java%E9%9D%A2%E8%AF%95-Java%E5%BC%82%E5%B8%B8%E7%AF%87/#more">more >></a>
         
       
 
@@ -286,6 +298,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
